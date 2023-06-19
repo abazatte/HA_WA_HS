@@ -1,0 +1,7 @@
+{
+  "name": "DBInfo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
