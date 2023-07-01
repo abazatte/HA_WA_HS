@@ -9,13 +9,23 @@ import { StationSearchService } from '../services/station-search.service';
 export class SearchPage {
 
   bahnhof: string = '';
+  responseData: any;
 
   constructor(private stationSearchService: StationSearchService) {}
 
   getBahnhof(){
     if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
-    console.log(this.stationSearchService.getToSearch());
     this.bahnhof = '';
+
+    this.stationSearchService.performGetRequest().subscribe(
+      (response) => {
+        this.responseData = response;
+        console.log('Data:', this.responseData);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 
 }

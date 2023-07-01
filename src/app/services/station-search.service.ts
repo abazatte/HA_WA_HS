@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import apikeys from '../../../apikeys.json';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class StationSearchService {
   toSearch: string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.toSearch = '';
   }
 
@@ -14,7 +16,14 @@ export class StationSearchService {
     this.toSearch = value;
   }
 
-  getToSearch() {
-    return this.toSearch;
+  performGetRequest() {
+    const url = `https://apis.deutschebahn.com/db-api-marketplace/apis/station-data/v2/stations/${this.toSearch}`;
+    const headers = new HttpHeaders({
+      'DB-Client-Id': apikeys[2]['client-id']!,
+      'DB-Api-Key': apikeys[2]['api-key'],
+      'accept': 'application/json'
+    });
+
+    return this.http.get(url, { headers });
   }
 }
