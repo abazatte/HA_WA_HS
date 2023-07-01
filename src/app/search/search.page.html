@@ -12,6 +12,17 @@
       <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <br />
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="bahnhof" label="Eingabefeld" label-placement="floating" fill="solid" placeholder="Bahnhofsname/Nr eingeben"></ion-input>
+    </ion-item>
+    <br />
+    <ion-item>
+      <ion-button (click)="getBahnhof()" expand="block" color="primary">
+        Suche
+        <ion-icon slot="end" name="search" ></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

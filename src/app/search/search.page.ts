@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StationSearchService } from '../services/station-search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class SearchPage {
 
-  constructor() {}
+  bahnhof: string = '';
+
+  constructor(private stationSearchService: StationSearchService) {}
+
+  getBahnhof(){
+    if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
+    console.log(this.stationSearchService.getToSearch());
+    this.bahnhof = '';
+  }
 
 }
