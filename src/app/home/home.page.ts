@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
+  icons: string[];
 
-  constructor() {}
+  constructor() {
+    this.icons = ['airplane-outline','aperture-outline'];
+  }
 
 }
