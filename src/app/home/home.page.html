@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home
+      BahnhofViewTest
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="top-image"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let icon of icons">
+        <ion-icon size="large" name="{{ icon }}"></ion-icon>
+        <ion-text color="secondary">
+          <p class="ion-no-margin">fox</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
