@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Client, Account, ID } from "appwrite";
 
 import apikeys from '../../../apikeys.json';
-import { NavigationEnd } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
