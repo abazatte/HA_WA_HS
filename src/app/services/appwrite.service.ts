@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Client, Account, ID } from "appwrite";
 
 import apikeys from '../../../apikeys.json';
+import { NavigationEnd } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,15 @@ export class AppwriteService {
       username,
       password
     );
+    this.promise.then(function (response: any) {
+      console.log(response);
+    }, function (error: any) {
+      console.log(error);
+    });
+  }
+
+  createAuthEmailSession(email: string, password: string) {
+    this.promise = this.account.createEmailSession(email, password);
     this.promise.then(function (response: any) {
       console.log(response);
     }, function (error: any) {

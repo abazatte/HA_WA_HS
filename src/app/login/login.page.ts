@@ -16,9 +16,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  register(){
-    if(this.email && this.password) this.appwriteService.createAuthAccount(this.email, this.password);
-  
+  login(){
+    if(this.email && this.password) this.appwriteService.createAuthEmailSession(this.email, this.password);
   }
 }
 
