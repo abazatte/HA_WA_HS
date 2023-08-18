@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChecksessionService } from '../services/checksession.service';
 
 @Component({
   selector: 'app-bahnhofservices',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BahnhofservicesPage implements OnInit {
 
-  constructor() { }
+  constructor(private checkSession: ChecksessionService) { }
 
   ngOnInit() {
+    this.checkSession.checkIfNotLoggedIn();
   }
 
 }

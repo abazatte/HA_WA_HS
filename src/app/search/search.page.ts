@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StationSearchService } from '../services/station-search.service';
+import { ChecksessionService } from '../services/checksession.service';
 
 @Component({
   selector: 'app-search',
@@ -11,8 +12,12 @@ export class SearchPage {
   bahnhof: string = '';
   responseData: any;
 
-  constructor(private stationSearchService: StationSearchService) {}
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {}
 
+  ngOnInit(){
+    this.checkSession.checkIfNotLoggedIn();
+  }
+  
   getBahnhof(){
     if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
     this.bahnhof = '';
