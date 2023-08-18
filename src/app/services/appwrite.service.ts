@@ -38,5 +38,16 @@ export class AppwriteService {
       console.log(error);
     });
   }
+
+  async checkSession(){
+    if(!this.account) return {'notExist': true};
+    this.promise = this.account.get();
+    this.promise.then(function (response: any) {
+      console.log(response);
+    }, function (error: any) {
+      console.log(error);
+    });
+    return this.promise;
+  }
 }
 

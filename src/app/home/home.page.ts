@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ChecksessionService } from '../services/checksession.service';
 
 class Icon{
   iconName : string;
@@ -18,8 +18,11 @@ class Icon{
 export class HomePage {
   icons: string[];
 
-  constructor() {
+  constructor(private checksessionService: ChecksessionService, ) {
     this.icons = ['airplane-outline','aperture-outline'];
   }
 
+  ngOnInit() {
+    this.checksessionService.checkIfNotLoggedIn();
+  }
 }
