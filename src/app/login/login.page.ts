@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppwriteService } from '../services/appwrite.service';
-
 import { Router } from '@angular/router';
 
 @Component({

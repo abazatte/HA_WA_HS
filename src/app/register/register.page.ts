@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppwriteService } from '../services/appwrite.service';
-import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +12,13 @@ export class RegisterPage implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private appwriteService: AppwriteService, private formBuilder: FormBuilder) { }
+  constructor(private appwriteService: AppwriteService, private router: Router) { }
 
   ngOnInit() {
   }
 
   register(){
     if(this.email && this.password) this.appwriteService.createAuthAccount(this.email, this.password);
+    this.router.navigate(['/login']);
   }
 }
