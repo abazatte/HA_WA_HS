@@ -1,3 +1,6 @@
+//https://app.quicktype.io/?l=ts
+//hiermit kann man json zu typescript types umwandeln
+
 interface Bahnhof {
     number: number;
     name: string;
