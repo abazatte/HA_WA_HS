@@ -17,9 +17,11 @@ class Icon{
 })
 export class HomePage {
   icons: string[];
+  text: string[];
 
   constructor(private checksessionService: ChecksessionService, ) {
     this.icons = ['airplane-outline','aperture-outline'];
+    this.text = ['barrierefreiheit', 'parken', 'transport', 'bahnhofservices', 'anschrift'];
   }
 
   ngOnInit() {
