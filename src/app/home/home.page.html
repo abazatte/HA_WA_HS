@@ -10,8 +10,8 @@
   <div class="top-image"></div>
   <ion-grid>
     <ion-row>
-      <ion-col size="4" *ngFor="let icon of icons">
-        <ion-icon size="large" name="{{ icon }}"></ion-icon>
+      <ion-col size="6" *ngFor="let icon of text">
+        <a size="large" href="/{{ icon }}">{{ icon }}</a>
         <ion-text color="secondary">
           <p class="ion-no-margin">fox</p>
         </ion-text>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StationSearchService } from '../services/station-search.service';
 import { Observable } from 'rxjs';
 
+import { ChecksessionService } from '../services/checksession.service';
 
 @Component({
   selector: 'app-search',
@@ -14,14 +15,18 @@ export class SearchPage implements OnInit{
   responseData: any;
   bahnhoefe$: Observable<any> = new Observable<any>;
 
-  constructor(private stationSearchService: StationSearchService) {}
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {}
 
   ngOnInit(){
     this.bahnhoefe$ = this.stationSearchService.performGetRequest();
+    this.checkSession.checkIfNotLoggedIn();
   }
 
 
   /*
+    this.checkSession.checkIfNotLoggedIn();
+  }
+  
   getBahnhof(){
     if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
     this.bahnhof = '';
