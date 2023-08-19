@@ -14,28 +14,24 @@
   </ion-header>
   <br />
   <ion-list>
+    <!--
     <ion-item>
       <input [matAutocomplete]="auto" [(ngModel)]="bahnhof" (change)="getBahnhof()" label="Eingabefeld" label-placement="floating" fill="solid" placeholder="Bahnhofsname/Nr eingeben"/>
+    </ion-item>-->
+    <ion-item>
+      <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus bindValue="number"
+        [(ngModel)]="selectedBahnhofNumber">
+      </ng-select>
     </ion-item>
     <ion-item>
-      <ng-select [items]="bahnhoefe$ | async"
-           bindLabel="name"
-           autofocus
-           bindValue="id"
-           [(ngModel)]="selectedPersonId">
-</ng-select>
+      <p> {{selectedBahnhofNumber}} </p>
     </ion-item>
     <br />
     <ion-item>
       <ion-button (click)="getBahnhof()" expand="block" color="primary">
         Suche
-        <ion-icon slot="end" name="search" ></ion-icon>
+        <ion-icon slot="end" name="search"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of options" [value]="option">
-      {{option}}
-    </mat-option>
-  </mat-autocomplete>
 </ion-content>

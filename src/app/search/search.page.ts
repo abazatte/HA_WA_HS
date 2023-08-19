@@ -17,6 +17,8 @@ export class SearchPage implements OnInit{
   bahnhoefe$: Observable<any> = new Observable<any>;
   bahnhoefeStatic: Bahnhof[];
 
+  selectedBahnhofNumber: number | undefined;
+
   constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
   }
@@ -26,10 +28,9 @@ export class SearchPage implements OnInit{
     this.checkSession.checkIfNotLoggedIn();
   }
 
+  getBahnhof(){}
 
   /*
-    this.checkSession.checkIfNotLoggedIn();
-  }
   
   getBahnhof(){
     if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
