@@ -1,6 +1,13 @@
 //https://app.quicktype.io/?l=ts
 //hiermit kann man json zu typescript types umwandeln
 
+interface BahnAPIResponse {
+    offset: number;
+    limit:  number;
+    total:  number;
+    result: Bahnhof[];
+}
+
 interface Bahnhof {
     number: number;
     name: string;
@@ -113,6 +120,7 @@ interface TimeTableOffice {
 }
 
 export{
+    BahnAPIResponse,
     Bahnhof,
     Aufgabentraeger,
     EvaNumber,

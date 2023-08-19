@@ -2,6 +2,8 @@ import { Injectable,OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import apikeys from '../../../apikeys.json';
 import { Observable } from 'rxjs';
+import _data from '../../../alleBahnhoefe.json';
+import { Bahnhof,BahnAPIResponse } from 'src/bahnhof';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +23,13 @@ export class StationSearchService {
 
   setToSearch(value: string) {
     this.toSearch = value;
+  }
+
+  getBahnhoefeFromLocalFile(){
+    var data = _data as BahnAPIResponse;
+    var BahnhoefeStatic : Bahnhof[] = data["result"];
+
+    return BahnhoefeStatic;
   }
 
   performGetRequest() {

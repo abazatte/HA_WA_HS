@@ -3,6 +3,7 @@ import { StationSearchService } from '../services/station-search.service';
 import { Observable } from 'rxjs';
 
 import { ChecksessionService } from '../services/checksession.service';
+import { Bahnhof } from 'src/bahnhof';
 
 @Component({
   selector: 'app-search',
@@ -14,11 +15,14 @@ export class SearchPage implements OnInit{
   bahnhof: string = '';
   responseData: any;
   bahnhoefe$: Observable<any> = new Observable<any>;
+  bahnhoefeStatic: Bahnhof[];
 
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {}
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {
+    this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
+  }
 
   ngOnInit(){
-    this.bahnhoefe$ = this.stationSearchService.performGetRequest();
+    // this.bahnhoefe$ = this.stationSearchService.performGetRequest();
     this.checkSession.checkIfNotLoggedIn();
   }
 
