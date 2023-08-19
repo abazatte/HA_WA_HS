@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
   async login(){
     if(this.email && this.password) this.appwriteService.createAuthEmailSession(this.email, this.password);
-    if(await this.appwriteService.checkSession()) this.router.navigate(['/home']);
+    if(await this.appwriteService.checkSession()) this.router.navigate(['/search']);
   }
 }
 
