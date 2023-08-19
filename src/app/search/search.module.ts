@@ -14,7 +14,7 @@ import { SearchPageRoutingModule } from './search-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     SearchPageRoutingModule,
-    NgSelectModule,
+    NgSelectModule, 
   ],
   declarations: [SearchPage],
     

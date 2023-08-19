@@ -19,13 +19,18 @@ export class SearchPage implements OnInit{
 
   selectedBahnhofNumber: number | undefined;
 
+  selectedSimpleItem = 'Two';
+  simpleItems;
+
   constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
+    this.simpleItems = [true, 'Two', 3];
   }
 
   ngOnInit(){
     // this.bahnhoefe$ = this.stationSearchService.performGetRequest();
     this.checkSession.checkIfNotLoggedIn();
+    
   }
 
   getBahnhof(){}
