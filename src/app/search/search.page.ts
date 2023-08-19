@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ChecksessionService } from '../services/checksession.service';
 import { Bahnhof } from 'src/custom_type_definition';
+import { FastaService } from '../services/fasta.service';
 import { Router } from '@angular/router';
 import { BahnhofdataService } from '../services/bahnhofdata.service';
 
@@ -23,8 +24,7 @@ export class SearchPage implements OnInit{
 
   selectedBahnhof: Bahnhof |undefined;
 
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, 
-    private router: Router, private bahnhofDataService : BahnhofdataService) {
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService, private router: Router, private bahnhofDataService : BahnhofdataService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
   }
 
