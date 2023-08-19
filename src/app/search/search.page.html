@@ -14,16 +14,16 @@
   </ion-header>
   <br />
 
-  <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus bindValue="number"
-    [(ngModel)]="selectedBahnhofNumber">
+  <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus 
+    [(ngModel)]="selectedBahnhof">
   </ng-select>
-  <ion-button (click)="getBahnhof()" expand="block" color="primary">
+  <ion-button (click)="navigateToBahnhofView()" expand="block" color="primary">
     Suche
     <ion-icon slot="end" name="search"></ion-icon>
   </ion-button>
   <ion-list>
-    <ion-item>
-      <p> {{selectedBahnhofNumber}} </p>
+    <ion-item *ngIf="selectedBahnhof">
+      <p> {{selectedBahnhof.number}} </p>
     </ion-item>
     <br />
     <ion-item>

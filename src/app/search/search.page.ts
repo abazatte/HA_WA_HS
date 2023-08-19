@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 
 import { ChecksessionService } from '../services/checksession.service';
 import { Bahnhof } from 'src/custom_type_definition';
+import { Router } from '@angular/router';
+import { BahnhofdataService } from '../services/bahnhofdata.service';
+
+
 
 @Component({
   selector: 'app-search',
@@ -17,14 +21,11 @@ export class SearchPage implements OnInit{
   bahnhoefe$: Observable<any> = new Observable<any>;
   bahnhoefeStatic: Bahnhof[];
 
-  selectedBahnhofNumber: number | undefined;
+  selectedBahnhof: Bahnhof |undefined;
 
-  selectedSimpleItem = 'Two';
-  simpleItems;
-
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, 
+    private router: Router, private bahnhofDataService : BahnhofdataService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
-    this.simpleItems = [true, 'Two', 3];
   }
 
   ngOnInit(){
@@ -33,7 +34,14 @@ export class SearchPage implements OnInit{
     
   }
 
-  getBahnhof(){}
+  navigateToBahnhofView(){
+    if(this.selectedBahnhof != undefined){
+      this.bahnhofDataService.setBahnhof(this.selectedBahnhof);
+      this.router.navigate(['/home']);
+    } else{
+      //TODO: fehler anzeigen, das kein bahnhof ausgesucht wurde
+    }
+  }
 
   /*
   

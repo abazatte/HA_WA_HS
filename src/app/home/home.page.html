@@ -16,6 +16,9 @@
           <p class="ion-no-margin">fox</p>
         </ion-text>
       </ion-col>
+      <ion-col *ngIf="getValue()">
+        {{getValue()}}
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

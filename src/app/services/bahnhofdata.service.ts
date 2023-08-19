@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Bahnhof } from 'src/custom_type_definition';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BahnhofdataService {
-  data: {} = {};
+  bahnhof: Bahnhof | undefined;
   constructor() { }
 
-  setData(searchData: {}) {
-    this.data = searchData;
+  setBahnhof(currentBahnhof: Bahnhof) {
+    this.bahnhof = currentBahnhof;
   }
 
   barrierefreiheit() {
-
+    return this.bahnhof?.number;
   }
   
   parken(){
