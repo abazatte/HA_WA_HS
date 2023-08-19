@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ChecksessionService } from '../services/checksession.service';
 import { Bahnhof } from 'src/custom_type_definition';
+import { FastaService } from '../services/fasta.service';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +20,7 @@ export class SearchPage implements OnInit{
 
   selectedBahnhofNumber: number | undefined;
 
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService) {
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
   }
 
