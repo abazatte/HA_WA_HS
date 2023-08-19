@@ -5,6 +5,10 @@ import { Observable } from 'rxjs';
 import { ChecksessionService } from '../services/checksession.service';
 import { Bahnhof } from 'src/custom_type_definition';
 import { FastaService } from '../services/fasta.service';
+import { Router } from '@angular/router';
+import { BahnhofdataService } from '../services/bahnhofdata.service';
+
+
 
 @Component({
   selector: 'app-search',
@@ -18,18 +22,26 @@ export class SearchPage implements OnInit{
   bahnhoefe$: Observable<any> = new Observable<any>;
   bahnhoefeStatic: Bahnhof[];
 
-  selectedBahnhofNumber: number | undefined;
+  selectedBahnhof: Bahnhof |undefined;
 
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService) {
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService, private router: Router, private bahnhofDataService : BahnhofdataService) {
     this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
   }
 
   ngOnInit(){
     // this.bahnhoefe$ = this.stationSearchService.performGetRequest();
     this.checkSession.checkIfNotLoggedIn();
+    
   }
 
-  getBahnhof(){}
+  navigateToBahnhofView(){
+    if(this.selectedBahnhof != undefined){
+      this.bahnhofDataService.setBahnhof(this.selectedBahnhof);
+      this.router.navigate(['/home']);
+    } else{
+      //TODO: fehler anzeigen, das kein bahnhof ausgesucht wurde
+    }
+  }
 
   /*
   

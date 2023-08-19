@@ -6,32 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
   <br />
+
+  <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus 
+    [(ngModel)]="selectedBahnhof">
+  </ng-select>
+  <ion-button (click)="navigateToBahnhofView()" expand="block" color="primary">
+    Suche
+    <ion-icon slot="end" name="search"></ion-icon>
+  </ion-button>
   <ion-list>
-    <!--
-    <ion-item>
-      <input [matAutocomplete]="auto" [(ngModel)]="bahnhof" (change)="getBahnhof()" label="Eingabefeld" label-placement="floating" fill="solid" placeholder="Bahnhofsname/Nr eingeben"/>
-    </ion-item>-->
-    <ion-item>
-      <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus bindValue="number"
-        [(ngModel)]="selectedBahnhofNumber">
-      </ng-select>
-    </ion-item>
-    <ion-item>
-      <p> {{selectedBahnhofNumber}} </p>
+    <ion-item *ngIf="selectedBahnhof">
+      <p> {{selectedBahnhof.number}} </p>
     </ion-item>
     <br />
     <ion-item>
-      <ion-button (click)="getBahnhof()" expand="block" color="primary">
-        Suche
-        <ion-icon slot="end" name="search"></ion-icon>
-      </ion-button>
+
     </ion-item>
   </ion-list>
 </ion-content>

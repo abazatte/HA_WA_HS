@@ -29,6 +29,8 @@ export class StationSearchService {
     var data = _data as BahnAPIResponse;
     var BahnhoefeStatic : Bahnhof[] = data["result"];
 
+    console.log(BahnhoefeStatic);
+
     return BahnhoefeStatic;
   }
 
