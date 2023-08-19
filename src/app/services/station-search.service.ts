@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import apikeys from '../../../apikeys.json';
 import { Observable } from 'rxjs';
 import _data from '../../../alleBahnhoefe.json';
-import { Bahnhof,BahnAPIResponse } from 'src/bahnhof';
+import { Bahnhof,BahnAPIResponse } from 'src/custom_type_definition';
 
 @Injectable({
   providedIn: 'root'

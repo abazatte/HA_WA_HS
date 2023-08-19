@@ -3,7 +3,7 @@ import { StationSearchService } from '../services/station-search.service';
 import { Observable } from 'rxjs';
 
 import { ChecksessionService } from '../services/checksession.service';
-import { Bahnhof } from 'src/bahnhof';
+import { Bahnhof } from 'src/custom_type_definition';
 
 @Component({
   selector: 'app-search',
