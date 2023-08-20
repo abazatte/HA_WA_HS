@@ -8,17 +8,14 @@ import { BahnhofdataService } from '../services/bahnhofdata.service';
   styleUrls: ['./bahnhofservices.page.scss'],
 })
 export class BahnhofservicesPage implements OnInit {
-  dataObj: any = {};
+  dataObj: any;
 
   constructor(private checkSession: ChecksessionService, private bahnhofData: BahnhofdataService) { }
 
   ngOnInit() {
     this.checkSession.checkIfNotLoggedIn();
     this.dataObj = this.bahnhofData.services();
-  }
-
-  getBahnhofServices(){
-    return this.bahnhofData.services();
+    console.log(this.dataObj.localServiceStaff);
   }
 
 }

@@ -8,13 +8,57 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">bahnhofservices</ion-title>
-      <ion-grid>
-        <ion-row>
-          <ion-col *ngIf="getBahnhofServices()">
-            {{getBahnhofServices()}}
-          </ion-col>
-        </ion-row>
-      </ion-grid>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid *ngIf="dataObj">
+    <ion-row>
+      hasRailwayMission: {{ dataObj.hasRailwayMission }}
+    </ion-row>
+    <ion-row>
+      hasTravelCenter: {{ dataObj.hasTravelCenter }}
+    </ion-row>
+    <ion-row>
+      hasDBLounge: {{ dataObj.hasDBLounge }}
+    </ion-row>
+    <ion-row>
+      hasLostAndFound: {{ dataObj.hasLostAndFound }}
+    </ion-row>
+    <ion-row>
+      localServiceStaff: 
+      <ion-col >
+        monday: {{ dataObj.localServiceStaff.availability.monday.fromTime }} - {{ dataObj.localServiceStaff.availability.monday.toTime }}
+      </ion-col>
+      <ion-col >
+        tuesday: {{ dataObj.localServiceStaff.availability.tuesday.fromTime }} - {{ dataObj.localServiceStaff.availability.tuesday.toTime }}
+      </ion-col>
+      <ion-col >
+        wednesday: {{ dataObj.localServiceStaff.availability.wednesday.fromTime }} - {{ dataObj.localServiceStaff.availability.wednesday.toTime }}
+      </ion-col>
+      <ion-col >
+        thursday: {{ dataObj.localServiceStaff.availability.thursday.fromTime }} - {{ dataObj.localServiceStaff.availability.thursday.toTime }}
+      </ion-col>
+      <ion-col >
+        friday: {{ dataObj.localServiceStaff.availability.friday.fromTime }} - {{ dataObj.localServiceStaff.availability.friday.toTime }}
+      </ion-col>
+      <ion-col >
+        saturday: {{ dataObj.localServiceStaff.availability.saturday.fromTime }} - {{ dataObj.localServiceStaff.availability.saturday.toTime }}
+      </ion-col>
+      <ion-col >
+        sunday: {{ dataObj.localServiceStaff.availability.sunday.fromTime }} - {{ dataObj.localServiceStaff.availability.sunday.toTime }}
+      </ion-col>
+      <ion-col >
+        holiday: {{ dataObj.localServiceStaff.availability.holiday.fromTime }} - {{ dataObj.localServiceStaff.availability.holiday.toTime }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      hasCarRental: {{ dataObj.hasCarRental }}
+    </ion-row>
+    <ion-row>
+      hasWiFi: {{ dataObj.hasWiFi }}
+    </ion-row>
+    <ion-row>
+      hasLockerSystem: {{ dataObj.hasLockerSystem }}
+    </ion-row>
+  </ion-grid>
 </ion-content>

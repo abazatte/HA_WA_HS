@@ -64,7 +64,7 @@ export class BahnhofdataService {
   //dblounge
   //mietwagen
   services(){
-    let obj = { hasRailwayMission: false, hasTravelCenter: false, hasDBLounge: false, hasLostAndFound: false, localServiceStaff: {}, hasCarRental: false, hasWiFi: false, hasLockerSystem: false };  
+    let obj = {  };  
     if(this.bahnhof) obj = { hasRailwayMission: this.bahnhof.hasRailwayMission, hasTravelCenter: this.bahnhof.hasTravelCenter, hasDBLounge: this.bahnhof.hasDBLounge, hasLostAndFound: this.bahnhof.hasLostAndFound, localServiceStaff: this.bahnhof.localServiceStaff, hasCarRental: this.bahnhof.hasCarRental, hasWiFi: this.bahnhof.hasWiFi, hasLockerSystem: this.bahnhof.hasLockerSystem }
     return obj;
   }
