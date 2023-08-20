@@ -71,9 +71,13 @@ export class BahnhofdataService {
 
   //nur die anschrift?
   anschrift(){
-    let address = '&q=' + this.bahnhof?.mailingAddress.city + ',' + this.bahnhof?.mailingAddress.zipcode + ',' + this.bahnhof?.mailingAddress.street;
-    let replaced = address.replace(/ /g, '+');
-    return replaced;
+    if(this.bahnhof){
+      let address = '&q=' + this.bahnhof?.mailingAddress.city + ',' + this.bahnhof?.mailingAddress.zipcode + ',' + this.bahnhof?.mailingAddress.street;
+      let replaced = address.replace(/ /g, '+');
+      return replaced;
+    }else{
+      return undefined;
+    }
   }
 
   setFasta(){
