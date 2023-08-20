@@ -30,7 +30,7 @@ export class HomePage {
 
   ngOnInit() {
     this.checksessionService.checkIfNotLoggedIn();
-    this.numberTest = this.bahnhofDataService.barrierefreiheit();
+    this.numberTest = 1; //quick fix
   }
 
   getValue(){
