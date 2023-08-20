@@ -5,6 +5,9 @@ import { catchError, map } from 'rxjs/operators';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import apikeys from '../../../apikeys.json';
+import { getSafePropertyAccessString } from '@angular/compiler';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-tab1',
@@ -12,13 +15,16 @@ import apikeys from '../../../apikeys.json';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  apiLoaded: Observable<boolean>;
-  constructor(httpClient: HttpClient) {
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key='+ apikeys[0]["api-key"], 'callback')
-        .pipe(
-          map(() => true),
-          catchError(() => of(false)),
-        );
+  srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"] + "&q=Osnabrück,Theodor-Heuss-Platz+2" ;
+  safeSrc: SafeResourceUrl;
+
+  constructor( private sanitizer: DomSanitizer) {
+    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.srcString);
+  }
+
+  getSrcString(){
+    console.log(this.srcString);
+    return this.srcString;
   }
 
 }
