@@ -35,4 +35,8 @@ export class HomePage {
   getValue(){
     return this.bahnhofDataService.barrierefreiheit();
   }
+
+  getPicture() {
+    return this.bahnhofDataService.getPicture();
+  }
 }
