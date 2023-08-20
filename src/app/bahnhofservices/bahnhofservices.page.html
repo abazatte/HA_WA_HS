@@ -8,6 +8,13 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">bahnhofservices</ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngIf="getBahnhofServices()">
+            {{getBahnhofServices()}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-toolbar>
   </ion-header>
 </ion-content>

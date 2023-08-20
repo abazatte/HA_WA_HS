@@ -11,7 +11,10 @@ export class BahnhofdataService {
   picture: string = '';
   responseData: any = {};
   fastaData: any = {};
-  constructor(private bahnhofpicture: BahnhofpictureService, private fasta: FastaService) { }
+  
+  constructor(private bahnhofpicture: BahnhofpictureService, private fasta: FastaService) {
+    console.log("Bahnhofdata createDecipheriv.")
+  }
 
   setBahnhof(currentBahnhof: Bahnhof) {
     this.bahnhof = currentBahnhof;
@@ -61,7 +64,7 @@ export class BahnhofdataService {
   //dblounge
   //mietwagen
   services(){
-    let obj = {  };
+    let obj = { hasRailwayMission: false, hasTravelCenter: false, hasDBLounge: false, hasLostAndFound: false, localServiceStaff: {}, hasCarRental: false, hasWiFi: false, hasLockerSystem: false };  
     if(this.bahnhof) obj = { hasRailwayMission: this.bahnhof.hasRailwayMission, hasTravelCenter: this.bahnhof.hasTravelCenter, hasDBLounge: this.bahnhof.hasDBLounge, hasLostAndFound: this.bahnhof.hasLostAndFound, localServiceStaff: this.bahnhof.localServiceStaff, hasCarRental: this.bahnhof.hasCarRental, hasWiFi: this.bahnhof.hasWiFi, hasLockerSystem: this.bahnhof.hasLockerSystem }
     return obj;
   }

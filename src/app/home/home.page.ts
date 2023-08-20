@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChecksessionService } from '../services/checksession.service';
 import { BahnhofdataService } from '../services/bahnhofdata.service';
 import { Bahnhof } from 'src/custom_type_definition';
+import { Router } from '@angular/router';
 
 class Icon{
   iconName : string;
@@ -20,9 +21,9 @@ class Icon{
 export class HomePage {
   icons: string[];
   text: string[];
-  numberTest: number | undefined;
+  numberTest: any | undefined;
 
-  constructor(private checksessionService: ChecksessionService,private bahnhofDataService: BahnhofdataService) {
+  constructor(private checksessionService: ChecksessionService,private bahnhofDataService: BahnhofdataService, private router: Router) {
     this.icons = ['airplane-outline','aperture-outline'];
     this.text = ['barrierefreiheit', 'parken', 'transport', 'bahnhofservices', 'anschrift'];
   }
@@ -38,5 +39,10 @@ export class HomePage {
 
   getPicture() {
     return this.bahnhofDataService.getPicture();
+  }
+
+  changeWindow(changer: string) {
+
+    this.router.navigate([`/${changer}`]);
   }
 }
