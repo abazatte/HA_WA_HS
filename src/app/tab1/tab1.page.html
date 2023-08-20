@@ -12,10 +12,15 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <h3>Google Maps DEMO</h3>
-  <div *ngIf="apiLoaded | async">
-    <google-map></google-map>
-  </div>
+ 
+<iframe
+  width="600"
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  [src]="safeSrc">
+</iframe>
   
 </ion-content>
