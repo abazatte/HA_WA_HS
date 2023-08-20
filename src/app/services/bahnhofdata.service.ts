@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Bahnhof } from 'src/custom_type_definition';
 import { BahnhofpictureService } from './bahnhofpicture.service';
+import { FastaService } from './fasta.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,14 @@ export class BahnhofdataService {
   bahnhof: Bahnhof | undefined;
   picture: string = '';
   responseData: any = {};
-  constructor(private bahnhofpicture: BahnhofpictureService) { }
+  fastaData: any = {};
+  constructor(private bahnhofpicture: BahnhofpictureService, private fasta: FastaService) { }
 
   setBahnhof(currentBahnhof: Bahnhof) {
     this.bahnhof = currentBahnhof;
+    this.fasta.setToSearch("" + this.bahnhof?.number);
     this.setPicture();
+    this.setFasta();
   }
 
   getBahnhof(){
@@ -31,17 +35,23 @@ export class BahnhofdataService {
 
   //nummer für fasta, mobilitaetsservice,   steplessaccess
   barrierefreiheit() {
-    return this.bahnhof?.number;
+    let obj = { };
+    if(this.bahnhof) obj = { fasta: this.fastaData ,hasMobilityService: this.bahnhof.hasMobilityService, hasSteplessAccess: this.bahnhof.hasSteplessAccess }
+    return obj;
   }
   
   //parken,fahrradparkmöglichkeiten
   parken(){
-    
+    let obj = { };
+    if(this.bahnhof) obj = { hasParking: this.bahnhof.hasParking, hasBicycleParking: this.bahnhof.hasBicycleParking }
+    return obj;
   }
 
   //taxi, busanbindung
   transport(){
-
+    let obj = { };
+    if(this.bahnhof) obj = { hasTaxiRank: this.bahnhof.hasTaxiRank, hasTravelNecessities: this.bahnhof.hasTravelNecessities }
+    return obj;
   }
   //bahnhofsmission, infocenter+öffnungszeiten
   //schließfächer
@@ -51,12 +61,27 @@ export class BahnhofdataService {
   //dblounge
   //mietwagen
   services(){
-
+    let obj = {  };
+    if(this.bahnhof) obj = { hasRailwayMission: this.bahnhof.hasRailwayMission, hasTravelCenter: this.bahnhof.hasTravelCenter, hasDBLounge: this.bahnhof.hasDBLounge, hasLostAndFound: this.bahnhof.hasLostAndFound, localServiceStaff: this.bahnhof.localServiceStaff, hasCarRental: this.bahnhof.hasCarRental, hasWiFi: this.bahnhof.hasWiFi, hasLockerSystem: this.bahnhof.hasLockerSystem }
+    return obj;
   }
 
   //nur die anschrift?
   anschrift(){
-    return this.bahnhof?.mailingAddress;
+    let address = '&q=' + this.bahnhof?.mailingAddress.city + ',' + this.bahnhof?.mailingAddress.zipcode + ',' + this.bahnhof?.mailingAddress.street;
+    let replaced = address.replace(/ /g, '+');
+    return replaced;
+  }
+
+  setFasta(){
+    this.fasta.performGetRequest().subscribe(
+      (response) => {
+        this.fastaData = response;
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 
   setPicture(){
