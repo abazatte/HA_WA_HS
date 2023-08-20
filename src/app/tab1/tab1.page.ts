@@ -15,7 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"] + "&q=Osnabrück,Theodor-Heuss-Platz+2" ;
+  srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"] + "&q=Osnabrück,49074,Theodor-Heuss-Platz+2" ;
   safeSrc: SafeResourceUrl;
 
   constructor( private sanitizer: DomSanitizer) {
