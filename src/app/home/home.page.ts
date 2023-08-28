@@ -41,6 +41,10 @@ export class HomePage {
     return this.bahnhofDataService.getPicture();
   }
 
+  getName() {
+    return this.bahnhofDataService.getBahnhof()?.name;
+  }
+
   changeWindow(changer: string) {
 
     this.router.navigate([`/${changer}`]);
