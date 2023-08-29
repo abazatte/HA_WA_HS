@@ -14,7 +14,7 @@
   </ion-header>
   <br />
 
-  <ng-select [items]="bahnhoefeStatic" bindLabel="name" autofocus 
+  <ng-select [items]="bahnhoefe$ | async" bindLabel="name" autofocus 
     [(ngModel)]="selectedBahnhof">
   </ng-select>
   <ion-button (click)="navigateToBahnhofView()" expand="block" color="primary">

@@ -4,6 +4,8 @@ import apikeys from '../../../apikeys.json';
 import { Observable } from 'rxjs';
 import _data from '../../../alleBahnhoefe.json';
 import { Bahnhof,BahnAPIResponse } from 'src/custom_type_definition';
+import { BucketAppwriteService } from './bucket-appwrite.service';
+import { BahnhofDatabaseService } from './bahnhof-database.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class StationSearchService {
   toSearch: string;
   
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private bahnhofDatabaseService : BahnhofDatabaseService, private bucketAppwriteService : BucketAppwriteService) {
     this.toSearch = '';
   }
 
@@ -28,9 +30,7 @@ export class StationSearchService {
   getBahnhoefeFromLocalFile(){
     var data = _data as BahnAPIResponse;
     var BahnhoefeStatic : Bahnhof[] = data["result"];
-
-    console.log(BahnhoefeStatic);
-
+    this.bucketAppwriteService.uploadHardCodedFile();
     return BahnhoefeStatic;
   }
 
@@ -47,5 +47,10 @@ export class StationSearchService {
     });
 
     return this.http.get(url, { headers });
+  }
+
+  performGetOnNodeBackend(){
+    const url = "http://134.255.219.65:3000/api/aktuelleBahnhoefe";
+    return this.http.get(url);
   }
 }

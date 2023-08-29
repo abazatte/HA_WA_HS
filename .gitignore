@@ -67,3 +67,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# nodejs
+/node-api-middleman/node_modules

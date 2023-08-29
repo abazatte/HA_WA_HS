@@ -20,12 +20,13 @@ export class SearchPage implements OnInit{
   bahnhof: string = '';
   responseData: any;
   bahnhoefe$: Observable<any> = new Observable<any>;
-  bahnhoefeStatic: Bahnhof[];
+  //bahnhoefeStatic: Bahnhof[];
 
   selectedBahnhof: Bahnhof |undefined;
 
   constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService, private router: Router, private bahnhofDataService : BahnhofdataService) {
-    this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
+    //this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
+    this.bahnhoefe$ = this.stationSearchService.performGetOnNodeBackend();
   }
 
   ngOnInit(){
