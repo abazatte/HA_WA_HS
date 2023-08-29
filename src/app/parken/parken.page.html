@@ -10,4 +10,22 @@
       <ion-title size="large">parken</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid *ngIf="dataObj">
+    <ion-row>
+      <div class="container">
+        <div class="svg-container">
+          <div class="park" *ngIf="dataObj && dataObj.hasBicycleParking"></div>
+          <div class="noPark" *ngIf="dataObj && !dataObj.hasBicycleParking"></div>
+        </div>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="container">
+        <div class="svg-container">
+          <div class="bikePark" *ngIf="dataObj && dataObj.hasParking"></div>
+          <div class="noBikePark" *ngIf="dataObj && !dataObj.hasParking"></div>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>

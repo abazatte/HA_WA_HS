@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px; 
+}
+
+.svg-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.railwayMission {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/railwayMission.svg');
+  background-repeat: no-repeat;
+}
+
+.noRailwayMission {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noRailwayMission.svg');
+  background-repeat: no-repeat;
+}
+
+.DBLounge {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/DBLounge.svg');
+  background-repeat: no-repeat;
+}
+
+.noDBLounge {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noDBLounge.svg');
+  background-repeat: no-repeat;
+}
+
+.lostAndFound {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/lostAndFound.svg');
+  background-repeat: no-repeat;
+}
+
+.noLostAndFound {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noLostAndFound.svg');
+  background-repeat: no-repeat;
+}
+
+.localServiceStaff {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/serviceInfo.svg');
+  background-repeat: no-repeat;
+}
+
+.noLocalServiceStaff {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noServiceInfo.svg');
+  background-repeat: no-repeat;
+}
+
+.travelCenter {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/reisezentrum.svg');
+  background-repeat: no-repeat;
+}
+
+.noTravelCenter {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noReisezentrum.svg');
+  background-repeat: no-repeat;
+}
+
+.carRental {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/carRental.svg');
+  background-repeat: no-repeat;
+}
+
+.noCarRental {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noCarRental.svg');
+  background-repeat: no-repeat;
+}
+.wifi {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/wifi.svg');
+  background-repeat: no-repeat;
+}
+
+.noWifi {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noWifi.svg');
+  background-repeat: no-repeat;
+}
+
+.locker {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/locker.svg');
+  background-repeat: no-repeat;
+}
+
+.noLocker {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/bahnhofservices/noLocker.svg');
+  background-repeat: no-repeat;
+}
