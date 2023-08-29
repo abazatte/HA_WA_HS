@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChecksessionService } from '../services/checksession.service';
+import { BahnhofdataService } from '../services/bahnhofdata.service';
 
 @Component({
   selector: 'app-parken',
@@ -7,11 +8,14 @@ import { ChecksessionService } from '../services/checksession.service';
   styleUrls: ['./parken.page.scss'],
 })
 export class ParkenPage implements OnInit {
-
-  constructor(private checkSession: ChecksessionService) { }
+  dataObj: any;
+  
+  constructor(private checkSession: ChecksessionService, private bahnhofDataService: BahnhofdataService) { }
 
   ngOnInit() {
     this.checkSession.checkIfNotLoggedIn();
+    this.dataObj = this.bahnhofDataService.parken();
+    console.log(this.dataObj);
   }
 
 }

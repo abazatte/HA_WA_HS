@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px; 
+}
+
+.svg-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.park {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/parken/park.svg');
+  background-repeat: no-repeat;
+}
+
+.noPark {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/parken/noPark.svg');
+  background-repeat: no-repeat;
+}
+
+.bikePark {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/parken/bikePark.svg');
+  background-repeat: no-repeat;
+}
+
+.noBikePark {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/parken/noBikePark.svg');
+  background-repeat: no-repeat;
+}

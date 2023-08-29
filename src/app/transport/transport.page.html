@@ -10,4 +10,22 @@
       <ion-title size="large">transport</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid *ngIf="dataObj">
+    <ion-row>
+      <div class="container">
+        <div class="svg-container">
+          <div class="taxi" *ngIf="dataObj && dataObj.hasTaxiRank"></div>
+          <div class="noTaxi" *ngIf="dataObj && !dataObj.hasTaxiRank"></div>
+        </div>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="container">
+        <div class="svg-container">
+          <div class="bus" *ngIf="dataObj && dataObj.hasTravelNecessities"></div>
+          <div class="noBus" *ngIf="dataObj && !dataObj.hasTravelNecessities"></div>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>

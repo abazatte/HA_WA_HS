@@ -10,4 +10,37 @@
       <ion-title size="large">barrierefreiheit</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid *ngIf="dataObj">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Mobilitätsservice</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ dataObj.hasMobilityService }}
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Barrierefreier Zugang</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ dataObj.hasSteplessAccess }}
+      </ion-card-content>
+    </ion-card>
+    <ion-row *ngIf="dataObj.fasta">
+      <ion-col *ngFor="let i of dataObj.fasta">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ i.description }}</ion-card-title>
+            <ion-card-subtitle>{{ i.state }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ i.stateExplanation }}
+            <br>
+            {{ i.type }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px; 
+}
+
+.svg-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.taxi {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/transport/taxi.svg');
+  background-repeat: no-repeat;
+}
+
+.noTaxi {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/transport/noTaxi.svg');
+  background-repeat: no-repeat;
+}
+
+.bus {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/transport/bus.svg');
+  background-repeat: no-repeat;
+}
+
+.noBus {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/frontend/transport/noBus.svg');
+  background-repeat: no-repeat;
+}
