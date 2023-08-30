@@ -12,20 +12,37 @@
   </ion-header>
   <ion-grid *ngIf="dataObj">
     <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="taxi" *ngIf="dataObj && dataObj.hasTaxiRank"></div>
-          <div class="noTaxi" *ngIf="dataObj && !dataObj.hasTaxiRank"></div>
-        </div>
-      </div>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Taxi</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="taxi" *ngIf="dataObj && dataObj.hasTaxiRank"></div>
+                <div class="noTaxi" *ngIf="dataObj && !dataObj.hasTaxiRank"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Bus</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="bus" *ngIf="dataObj && dataObj.hasTravelNecessities"></div>
+                <div class="noBus" *ngIf="dataObj && !dataObj.hasTravelNecessities"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="bus" *ngIf="dataObj && dataObj.hasTravelNecessities"></div>
-          <div class="noBus" *ngIf="dataObj && !dataObj.hasTravelNecessities"></div>
-        </div>
-      </div>
-    </ion-row>
+
   </ion-grid>
 </ion-content>
