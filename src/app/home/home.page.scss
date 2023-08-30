@@ -6,7 +6,8 @@
     background-position: center;
   }
 
-#image{
+#image {
   height: 40vh; //40% viewport height
   width: 100%;
+  object-fit: cover;
 }

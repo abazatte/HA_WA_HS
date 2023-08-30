@@ -12,12 +12,6 @@
     <ion-row>
       <ion-col size="6" *ngFor="let icon of text">
         <ion-button size="large" (click)="changeWindow(icon)">{{ icon }}</ion-button>
-        <ion-text color="secondary">
-          <p class="ion-no-margin">fox</p>
-        </ion-text>
-      </ion-col>
-      <ion-col *ngIf="getValue()">
-        {{getValue()}}
       </ion-col>
     </ion-row>
   </ion-grid>
