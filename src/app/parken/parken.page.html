@@ -12,20 +12,36 @@
   </ion-header>
   <ion-grid *ngIf="dataObj">
     <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="park" *ngIf="dataObj && dataObj.hasBicycleParking"></div>
-          <div class="noPark" *ngIf="dataObj && !dataObj.hasBicycleParking"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="bikePark" *ngIf="dataObj && dataObj.hasParking"></div>
-          <div class="noBikePark" *ngIf="dataObj && !dataObj.hasParking"></div>
-        </div>
-      </div>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Parkplatz</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="park" *ngIf="dataObj && dataObj.hasBicycleParking"></div>
+                <div class="noPark" *ngIf="dataObj && !dataObj.hasBicycleParking"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Fahrradparkplatz</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="bikePark" *ngIf="dataObj && dataObj.hasParking"></div>
+                <div class="noBikePark" *ngIf="dataObj && !dataObj.hasParking"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

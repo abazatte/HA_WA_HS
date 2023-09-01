@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppwriteService } from '../services/appwrite.service';
 import { Router } from '@angular/router';
+import { ChecksessionService } from '../services/checksession.service';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators, Form, FormControl } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
  
-  constructor(private appwriteService: AppwriteService, private router: Router
+  constructor(private appwriteService: AppwriteService, private router: Router, private checksession: ChecksessionService
     , private cd: ChangeDetectorRef, public formBuilder: FormBuilder) { 
     this.loginForm = this.formBuilder.group({
       emailForm: ['', [Validators.required, Validators.email]],
@@ -28,7 +29,11 @@ export class LoginPage implements OnInit {
   }
 
   async login(){
-    if(this.email && this.password) this.appwriteService.createAuthEmailSession(this.email, this.password);
+    if(this.email && this.password) {
+      this.appwriteService.createAuthEmailSession(this.email, this.password).then(() => {
+        this.checksession.checkIfLoggedIn();
+      });
+    }
     if(await this.appwriteService.checkSession()) this.router.navigate(['/search']);
   }
 }

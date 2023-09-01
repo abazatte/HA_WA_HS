@@ -11,134 +11,199 @@
   </ion-header>
   <ion-grid *ngIf="dataObj">
     <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="railwayMission" *ngIf="dataObj && dataObj.hasRailwayMission"></div>
-          <div class="noRailwayMission" *ngIf="dataObj && !dataObj.hasRailwayMission"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="travelCenter" *ngIf="dataObj && dataObj.hasTravelCenter"></div>
-          <div class="noTravelCenter" *ngIf="dataObj && !dataObj.hasTravelCenter"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="DBLounge" *ngIf="dataObj && dataObj.hasDBLounge"></div>
-          <div class="noDBLounge" *ngIf="dataObj && !dataObj.hasDBLounge"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="lostAndFound" *ngIf="dataObj && dataObj.hasLostAndFound"></div>
-          <div class="noLostAndFound" *ngIf="dataObj && !dataObj.hasLostAndFound"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="localServiceStaff" *ngIf="dataObj && dataObj.localServiceStaff"></div>
-          <div class="noLocalServiceStaff" *ngIf="dataObj && !dataObj.localServiceStaff"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row *ngIf="dataObj.localServiceStaff">
-      <ion-card>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Infocenter</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="localServiceStaff" *ngIf="dataObj && dataObj.localServiceStaff"></div>
+                <div class="noLocalServiceStaff" *ngIf="dataObj && !dataObj.localServiceStaff"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-card *ngIf="dataObj.localServiceStaff">
         <ion-card-header>
-          <ion-card-title>Monday</ion-card-title>
+          <ion-card-title>Öffnungszeiten Infocenter</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.monday.fromTime }} - {{ dataObj.localServiceStaff.availability.monday.toTime }}
+          <ion-row *ngIf="dataObj.localServiceStaff">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Monday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.monday.fromTime }} - {{ dataObj.localServiceStaff.availability.monday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Tuesday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.tuesday.fromTime }} - {{ dataObj.localServiceStaff.availability.tuesday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Wednesday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.wednesday.fromTime }} - {{ dataObj.localServiceStaff.availability.wednesday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Thursday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.thursday.fromTime }} - {{ dataObj.localServiceStaff.availability.thursday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Friday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.friday.fromTime }} - {{ dataObj.localServiceStaff.availability.friday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Saturday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.saturday.fromTime }} - {{ dataObj.localServiceStaff.availability.saturday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Sunday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.sunday.fromTime }} - {{ dataObj.localServiceStaff.availability.sunday.toTime }}
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Holiday</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ dataObj.localServiceStaff.availability.holiday.fromTime }} - {{ dataObj.localServiceStaff.availability.holiday.toTime }}
+              </ion-card-content>
+            </ion-card>
+          </ion-row>
         </ion-card-content>
       </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tuesday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.tuesday.fromTime }} - {{ dataObj.localServiceStaff.availability.tuesday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Wednesday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.wednesday.fromTime }} - {{ dataObj.localServiceStaff.availability.wednesday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Thursday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.thursday.fromTime }} - {{ dataObj.localServiceStaff.availability.thursday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Friday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.friday.fromTime }} - {{ dataObj.localServiceStaff.availability.friday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Saturday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.saturday.fromTime }} - {{ dataObj.localServiceStaff.availability.saturday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Sunday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.sunday.fromTime }} - {{ dataObj.localServiceStaff.availability.sunday.toTime }}
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Holiday</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ dataObj.localServiceStaff.availability.holiday.fromTime }} - {{ dataObj.localServiceStaff.availability.holiday.toTime }}
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="carRental" *ngIf="dataObj && dataObj.hasCarRental"></div>
-          <div class="noCarRental" *ngIf="dataObj && !dataObj.hasCarRental"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="wifi" *ngIf="dataObj && dataObj.hasWiFi"></div>
-          <div class="noWifi" *ngIf="dataObj && !dataObj.hasWiFi"></div>
-        </div>
-      </div>
-    </ion-row>
-    <ion-row>
-      <div class="container">
-        <div class="svg-container">
-          <div class="locker" *ngIf="dataObj && dataObj.hasLockerSystem"></div>
-          <div class="noLocker" *ngIf="dataObj && !dataObj.hasLockerSystem"></div>
-        </div>
-      </div>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Bahnhofsmission</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="railwayMission" *ngIf="dataObj && dataObj.hasRailwayMission"></div>
+                <div class="noRailwayMission" *ngIf="dataObj && !dataObj.hasRailwayMission"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Reisezentrum</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="travelCenter" *ngIf="dataObj && dataObj.hasTravelCenter"></div>
+                <div class="noTravelCenter" *ngIf="dataObj && !dataObj.hasTravelCenter"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>DBLounge</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="DBLounge" *ngIf="dataObj && dataObj.hasDBLounge"></div>
+                <div class="noDBLounge" *ngIf="dataObj && !dataObj.hasDBLounge"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Fundgrube</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="lostAndFound" *ngIf="dataObj && dataObj.hasLostAndFound"></div>
+                <div class="noLostAndFound" *ngIf="dataObj && !dataObj.hasLostAndFound"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Autovermietung</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="carRental" *ngIf="dataObj && dataObj.hasCarRental"></div>
+                <div class="noCarRental" *ngIf="dataObj && !dataObj.hasCarRental"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>WLAN</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="wifi" *ngIf="dataObj && dataObj.hasWiFi"></div>
+                <div class="noWifi" *ngIf="dataObj && !dataObj.hasWiFi"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Spintfächer</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="container">
+              <div class="svg-container">
+                <div class="locker" *ngIf="dataObj && dataObj.hasLockerSystem"></div>
+                <div class="noLocker" *ngIf="dataObj && !dataObj.hasLockerSystem"></div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

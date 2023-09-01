@@ -31,12 +31,14 @@ export class AppwriteService {
   }
 
   createAuthEmailSession(email: string, password: string) {
+    var prom = Promise.resolve();
     this.promise = this.account.createEmailSession(email, password);
     this.promise.then(function (response: any) {
       console.log(response);
     }, function (error: any) {
       console.log(error);
     });
+    return prom;
   }
 
   async checkSession(){

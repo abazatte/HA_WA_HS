@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 300px; 
+  height: 20vh; 
 }
 
 .svg-container {
@@ -17,6 +17,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/railwayMission.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noRailwayMission {
@@ -24,6 +25,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noRailwayMission.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .DBLounge {
@@ -31,6 +33,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/DBLounge.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noDBLounge {
@@ -38,6 +41,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noDBLounge.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .lostAndFound {
@@ -45,6 +49,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/lostAndFound.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noLostAndFound {
@@ -52,6 +57,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noLostAndFound.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .localServiceStaff {
@@ -59,6 +65,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/serviceInfo.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noLocalServiceStaff {
@@ -66,6 +73,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noServiceInfo.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .travelCenter {
@@ -73,6 +81,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/reisezentrum.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noTravelCenter {
@@ -80,6 +89,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noReisezentrum.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .carRental {
@@ -87,6 +97,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/carRental.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noCarRental {
@@ -94,12 +105,14 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noCarRental.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 .wifi {
   width: 100%;
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/wifi.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noWifi {
@@ -107,6 +120,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noWifi.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .locker {
@@ -114,6 +128,7 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/locker.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .noLocker {
@@ -121,4 +136,5 @@
   height: 100%;
   background-image: url('../../assets/frontend/bahnhofservices/noLocker.svg');
   background-repeat: no-repeat;
+  background-position: center;
 }
