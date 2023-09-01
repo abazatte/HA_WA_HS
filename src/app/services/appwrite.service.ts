@@ -31,14 +31,17 @@ export class AppwriteService {
   }
 
   createAuthEmailSession(email: string, password: string) {
-    var prom = Promise.resolve();
-    this.promise = this.account.createEmailSession(email, password);
-    this.promise.then(function (response: any) {
-      console.log(response);
-    }, function (error: any) {
-      console.log(error);
+    return new Promise((resolve, reject) => {
+      this.account.createEmailSession(email, password)
+        .then((response: any) => {
+          console.log(response);
+          resolve(response); 
+        })
+        .catch((error: any) => {
+          console.log(error);
+          reject(error); 
+        });
     });
-    return prom;
   }
 
   async checkSession(){
