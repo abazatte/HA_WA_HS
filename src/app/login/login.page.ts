@@ -11,7 +11,9 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  //Quelle: https://ionicframework.com/docs/api/toast
+  isToastOpen = false;
+  toastMessage = "";
   email: string = '';
   password: string = '';
 
@@ -34,10 +36,14 @@ export class LoginPage implements OnInit {
         this.checksession.checkIfLoggedIn();
       },(error: any) => {
         //hier ne error msg anzeigen
-        console.log(error.message);
+        this.toastMessage = error.message;
+        this.setOpen(true);
       });
     }
     if(await this.appwriteService.checkSession()) this.router.navigate(['/search']);
+  }
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
   }
 }
 
