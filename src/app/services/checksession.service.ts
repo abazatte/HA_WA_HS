@@ -9,7 +9,12 @@ export class ChecksessionService {
   constructor(private router: Router) { }
 
   checkIfNotLoggedIn(){
-    let returnValue = localStorage.getItem('cookieFallback'); 
-    if(!returnValue) this.router.navigate(['/login']);
+    let check = localStorage.getItem('cookieFallback'); 
+    if(!check) this.router.navigate(['/login']);
+  }
+
+  checkIfLoggedIn() {
+    let check = localStorage.getItem('cookieFallback');
+    if(check) this.router.navigate(['/search']);
   }
 }
