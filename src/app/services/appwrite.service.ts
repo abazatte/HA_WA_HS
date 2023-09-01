@@ -18,7 +18,12 @@ export class AppwriteService {
   constructor() { }
 
   createAuthAccount(username: string, password: string){
-    this.promise = this.account.create(
+    return this.account.create(
+      ID.unique(),
+      username,
+      password
+    );
+    /*this.promise = this.account.create(
       ID.unique(),
       username,
       password
@@ -27,7 +32,7 @@ export class AppwriteService {
       console.log(response);
     }, function (error: any) {
       console.log(error);
-    });
+    });*/
   }
 
   createAuthEmailSession(email: string, password: string) {
