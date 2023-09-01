@@ -30,8 +30,11 @@ export class LoginPage implements OnInit {
 
   async login(){
     if(this.email && this.password) {
-      this.appwriteService.createAuthEmailSession(this.email, this.password).then(() => {
+      this.appwriteService.createAuthEmailSession(this.email, this.password).then((response: any) => {
         this.checksession.checkIfLoggedIn();
+      },(error: any) => {
+        //hier ne error msg anzeigen
+        console.log(error.message);
       });
     }
     if(await this.appwriteService.checkSession()) this.router.navigate(['/search']);
