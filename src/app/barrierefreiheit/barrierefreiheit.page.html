@@ -32,12 +32,27 @@
         <ion-card>
           <ion-card-header>
             <ion-card-title>{{ i.description }}</ion-card-title>
-            <ion-card-subtitle>{{ i.state }}</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="i.state === 'ACTIVE'">In Betrieb</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="i.state === 'UNKNOWN'">Unbekannt</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="i.state === 'INACTIVE'">Nicht in Betrieb</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            {{ i.stateExplanation }}
+            <ion-item *ngIf="i.stateExplanation === 'available'">
+              verfügbar
+            </ion-item>
+            <ion-item *ngIf="i.stateExplanation === 'monitoring not available'">
+              Überwachung nicht verfügbar
+            </ion-item>
+            <ion-item *ngIf="i.stateExplanation === 'under construction'">
+              Im Bau
+            </ion-item>
             <br>
-            {{ i.type }}
+            <ion-item *ngIf="i.type === 'ESCALATOR'">
+              Rolltreppe
+            </ion-item>
+            <ion-item *ngIf="i.type === 'ELEVATOR'">
+              Aufzug
+            </ion-item>
           </ion-card-content>
         </ion-card>
       </ion-col>
