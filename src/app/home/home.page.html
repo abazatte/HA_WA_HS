@@ -1,13 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title *ngIf="getName()">
       {{ getName() }}
+    </ion-title>
+    <ion-title *ngIf="!getPicture()">
+      Kein Bahnhof ausgewählt!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <img id="image" src="{{ getPicture() }}" alt="">
+  <div *ngIf="getPicture()">
+    <img id="image" src="{{ getPicture() }}" alt="">
+  </div>
+  <div *ngIf="!getPicture()">
+    <div class="top-image"></div>
+  </div>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let icon of text">
