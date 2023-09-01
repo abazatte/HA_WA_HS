@@ -14,11 +14,11 @@
   <form name="loginForm" [formGroup]="loginForm">
   <ion-list>
     <ion-item>
-      <ion-input formControlName="emailForm" [(ngModel)]="email" label="Eingabefeld" fill="solid" placeholder="E-Mail" helperText="Deine Email eingeben"
+      <ion-input label-placement="floating" formControlName="emailForm" [(ngModel)]="email" label="E-Mail" fill="solid" placeholder="max@mustermann.de" helperText="Deine Email eingeben"
       errorText="Email ungültig" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input formControlName="passwordForm" [(ngModel)]="password" type="password" label="Eingabefeld" fill="solid" placeholder="Password" helperText="Passwort eingeben"
+      <ion-input label-placement="floating" formControlName="passwordForm" [(ngModel)]="password" type="password" label="Passwort" fill="solid" placeholder="●●●●●●●●" helperText="Passwort eingeben"
       errorText="Passwort ist falsch" required></ion-input>
     </ion-item>
     <ion-item>
@@ -30,5 +30,11 @@
       <a href="/register">Register</a>
     </ion-item>
   </ion-list>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="toastMessage"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </form>
 </ion-content>
