@@ -54,5 +54,9 @@ export class AppwriteService {
     });
     return this.promise;
   }
+
+  async deleteSession(){
+    await this.account.deleteSession('current');
+  }
 }
 

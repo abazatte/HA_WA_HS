@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { BahnhofdataService } from '../services/bahnhofdata.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import apikeys from '../../../apikeys.json';
+import { AppwriteService } from '../services/appwrite.service';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class SearchPage implements OnInit{
   srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"];
   public screenHeightCustom: number = 400;
 
-  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService, private router: Router, private bahnhofDataService : BahnhofdataService, private sanitizer: DomSanitizer) {
+  constructor(private stationSearchService: StationSearchService, private checkSession: ChecksessionService, private fasta: FastaService, private router: Router, private bahnhofDataService : BahnhofdataService, private sanitizer: DomSanitizer, private appwrite: AppwriteService) {
     //this.bahnhoefeStatic = this.stationSearchService.getBahnhoefeFromLocalFile();
     this.bahnhoefe$ = this.stationSearchService.performGetOnNodeBackend();
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.srcString);
@@ -63,6 +64,12 @@ export class SearchPage implements OnInit{
     this.latitude = coordinates.coords.latitude;
     this.longitude = coordinates.coords.longitude;
     return promise;
+  }
+
+  logout() {
+    console.log('clicked');
+    this.appwrite.deleteSession();
+    this.router.navigate(['/login']);
   }
 
   /*
