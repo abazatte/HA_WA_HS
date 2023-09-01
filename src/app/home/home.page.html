@@ -10,7 +10,7 @@
   <img id="image" src="{{ getPicture() }}" alt="">
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let icon of text">
+      <ion-col *ngFor="let icon of text">
         <ion-button size="large" (click)="changeWindow(icon)">{{ icon }}</ion-button>
       </ion-col>
     </ion-row>

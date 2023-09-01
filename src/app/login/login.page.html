@@ -11,12 +11,15 @@
     </ion-toolbar>
   </ion-header>
   <br />
+  <form name="loginForm" [formGroup]="loginForm">
   <ion-list>
     <ion-item>
-      <ion-input [(ngModel)]="email" label="Eingabefeld" fill="solid" placeholder="E-Mail"></ion-input>
+      <ion-input formControlName="emailForm" [(ngModel)]="email" label="Eingabefeld" fill="solid" placeholder="E-Mail" helperText="Deine Email eingeben"
+      errorText="Email ungültig" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="password" type="password" label="Eingabefeld" fill="solid" placeholder="Password"></ion-input>
+      <ion-input formControlName="passwordForm" [(ngModel)]="password" type="password" label="Eingabefeld" fill="solid" placeholder="Password" helperText="Passwort eingeben"
+      errorText="Passwort ist falsch" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-button (click)="login()" expand="block" color="primary">
@@ -27,4 +30,5 @@
       <a href="/register">Register</a>
     </ion-item>
   </ion-list>
+</form>
 </ion-content>
