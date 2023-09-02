@@ -19,7 +19,12 @@
         <ion-card-title>Mobilitätsservice</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        {{ dataObj.hasMobilityService }}
+        <ion-item *ngIf="dataObj.hasMobilityService === 'no'">
+          Nicht vorhanden.
+        </ion-item>
+        <ion-item *ngIf="!dataObj.hasMobilityService === 'no'">
+          {{ dataObj.hasMobilityService }}
+        </ion-item>
       </ion-card-content>
     </ion-card>
     <ion-card>
@@ -27,7 +32,12 @@
         <ion-card-title>Barrierefreier Zugang</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        {{ dataObj.hasSteplessAccess }}
+        <ion-item *ngIf="dataObj.hasSteplessAccess === 'no'">
+          Nicht vorhanden.
+        </ion-item>
+        <ion-item *ngIf="!dataObj.hasSteplessAccess === 'no'">
+          {{ dataObj.hasSteplessAccess }}
+        </ion-item>
       </ion-card-content>
     </ion-card>
     <ion-row *ngIf="dataObj.fasta">
@@ -40,21 +50,23 @@
             <ion-card-subtitle *ngIf="i.state === 'INACTIVE'">Nicht in Betrieb</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-item *ngIf="i.stateExplanation === 'available'">
-              verfügbar
+            <ion-item *ngIf="i.stateExplanation === 'available' && i.type === 'ESCALATOR'">
+              Rolltreppe ist verfügbar
             </ion-item>
-            <ion-item *ngIf="i.stateExplanation === 'monitoring not available'">
-              Überwachung nicht verfügbar
+            <ion-item *ngIf="i.stateExplanation === 'available' && i.type === 'ELEVATOR'">
+              Aufzug ist verfügbar
             </ion-item>
-            <ion-item *ngIf="i.stateExplanation === 'under construction'">
-              Im Bau
+            <ion-item *ngIf="i.stateExplanation === 'monitoring not available' && i.type === 'ESCALATOR'">
+              Rolltreppe ist in Überwachung nicht verfügbar
             </ion-item>
-            <br>
-            <ion-item *ngIf="i.type === 'ESCALATOR'">
-              Rolltreppe
+            <ion-item *ngIf="i.stateExplanation === 'monitoring not available' && i.type === 'ELEVATOR'">
+              Aufzug ist in Überwachung nicht verfügbar
             </ion-item>
-            <ion-item *ngIf="i.type === 'ELEVATOR'">
-              Aufzug
+            <ion-item *ngIf="i.stateExplanation === 'under construction' && i.type === 'ESCALATOR'">
+              Rolltreppe ist im Bau
+            </ion-item>
+            <ion-item *ngIf="i.stateExplanation === 'under construction' && i.type === 'ELEVATOR'">
+              Aufzug ist im Bau
             </ion-item>
           </ion-card-content>
         </ion-card>
