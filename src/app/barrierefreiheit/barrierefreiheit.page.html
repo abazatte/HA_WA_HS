@@ -19,12 +19,8 @@
         <ion-card-title>Mobilitätsservice</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item *ngIf="dataObj.hasMobilityService === 'no'">
-          Nicht vorhanden.
-        </ion-item>
-        <ion-item *ngIf="!dataObj.hasMobilityService === 'no'">
-          {{ dataObj.hasMobilityService }}
-        </ion-item>
+        {{ dataObj.hasMobilityService }}
+
       </ion-card-content>
     </ion-card>
     <ion-card>
@@ -32,12 +28,7 @@
         <ion-card-title>Barrierefreier Zugang</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item *ngIf="dataObj.hasSteplessAccess === 'no'">
-          Nicht vorhanden.
-        </ion-item>
-        <ion-item *ngIf="!dataObj.hasSteplessAccess === 'no'">
-          {{ dataObj.hasSteplessAccess }}
-        </ion-item>
+        {{ dataObj.hasSteplessAccess }}
       </ion-card-content>
     </ion-card>
     <ion-row *ngIf="dataObj.fasta">
