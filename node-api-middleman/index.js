@@ -7,13 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
 
-
-app.use(cors());
-  
+app.use(cors()); //cors aktivieren, damit Angular keinen Fehler wirft
 
 let cachedData = null;
 let apikeys;
 
+//apikeys aus json lesen
 fs.readFile('../apikeys.json', 'utf8', (err, data) => {
     if (err) {
         console.error('Error reading JSON file:', err.message);
@@ -23,17 +22,14 @@ fs.readFile('../apikeys.json', 'utf8', (err, data) => {
     try {
         apikeys = JSON.parse(data);
         fetchData();
-        //console.log('JavaScript object from JSON file:', apikeys);
     } catch (parseError) {
         console.error('Error parsing JSON:', parseError.message);
     }
 });
 
-// Function to fetch data from the external API
+// Aus DB-Api alle Bahnhöfe fetchen
 const fetchData = async () => {
     try {
-        //const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-
         const headers = {
             'DB-Client-Id': apikeys[1]['client-id'],
             'DB-Api-Key': apikeys[1]['api-key'],
@@ -46,10 +42,10 @@ const fetchData = async () => {
         console.error('Error fetching data:', error);
     }
 };
-// Schedule the API call to run once per day
+// Einmal pro Tag wird gefetcht Quelle: https://crontab.guru/once-a-day
 cron.schedule('0 0 * * *', fetchData);
 
-// Endpoint to expose the cached data
+// API endpoint
 app.get('/api/aktuelleBahnhoefe', (req, res) => {
     if (cachedData) {
         res.json(cachedData["result"]);
@@ -58,7 +54,7 @@ app.get('/api/aktuelleBahnhoefe', (req, res) => {
     }
 });
 
-// Start the server
+// Server starten!
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
