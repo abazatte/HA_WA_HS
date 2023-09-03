@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,SecurityContext } from '@angular/core';
 import { ChecksessionService } from '../services/checksession.service';
 import { BahnhofdataService } from '../services/bahnhofdata.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -12,7 +12,8 @@ import apikeys from '../../../apikeys.json';
 })
 export class AnschriftPage implements OnInit {
   safeSrc: SafeResourceUrl;
-  srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"];
+  srcString: string = "https://www.google.com/maps/embed/v1/place?key=" 
+  +apikeys[0]["api-key"];
   public screenHeightCustom: number = 400;
 
   constructor(private checkSession: ChecksessionService, private bahnhofDataService: BahnhofdataService,private sanitizer: DomSanitizer) { 

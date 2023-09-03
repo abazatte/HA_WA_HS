@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { StationSearchService } from '../services/station-search.service';
 import { Observable } from 'rxjs';
 import { Geolocation } from '@capacitor/geolocation';
@@ -40,6 +40,7 @@ export class SearchPage implements OnInit{
     this.getCurrentLocation().then(() => {
       this.srcString += '&q=' + this.latitude + ',' + this.longitude;
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.srcString);
+      
       this.screenHeightCustom = Math.floor(window.innerHeight * 0.80);
     });
   }
