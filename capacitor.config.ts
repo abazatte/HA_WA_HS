@@ -5,7 +5,8 @@ const config: CapacitorConfig = {
   appName: 'DBInfo',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
+    url: 'http://134.255.219.65:3131'
   }
 };
 
