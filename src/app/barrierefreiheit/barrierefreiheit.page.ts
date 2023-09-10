@@ -17,5 +17,4 @@ export class BarrierefreiheitPage implements OnInit {
     this.dataObj = this.bahnhofDataService.barrierefreiheit();
     console.log(this.dataObj);
   }
-
 }

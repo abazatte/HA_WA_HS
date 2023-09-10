@@ -18,5 +18,4 @@ export class TransportPage implements OnInit {
     this.dataObj = this.bahnhofDataService.transport();
     console.log(this.dataObj);
   }
-
 }

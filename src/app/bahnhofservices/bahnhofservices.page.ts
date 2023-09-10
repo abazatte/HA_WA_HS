@@ -17,5 +17,4 @@ export class BahnhofservicesPage implements OnInit {
     this.dataObj = this.bahnhofData.services();
     console.log(this.dataObj.localServiceStaff);
   }
-
 }

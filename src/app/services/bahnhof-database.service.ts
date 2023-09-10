@@ -3,7 +3,6 @@ import { Client, Databases, ID } from "appwrite";
 import apikeys from '../../../apikeys.json';
 import _data from '../../../alleBahnhoefe.json';
 
-
 @Injectable({
   providedIn: 'root'
 })

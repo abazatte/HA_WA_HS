@@ -6,7 +6,6 @@
     <ion-title>Barrierefreiheit</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -20,7 +19,6 @@
       </ion-card-header>
       <ion-card-content>
         {{ dataObj.hasMobilityService }}
-
       </ion-card-content>
     </ion-card>
     <ion-card>
@@ -53,10 +51,10 @@
             <ion-item *ngIf="i.stateExplanation === 'monitoring not available' && i.type === 'ELEVATOR'">
               Aufzug ist in Überwachung nicht verfügbar
             </ion-item>
-            <ion-item *ngIf="i.stateExplanation === 'under construction' && i.type === 'ESCALATOR'">
+            <ion-item *ngIf="(i.stateExplanation === 'under construction' || i.stateExplanation === 'not available') && i.type === 'ESCALATOR'">
               Rolltreppe ist im Bau
             </ion-item>
-            <ion-item *ngIf="i.stateExplanation === 'under construction' && i.type === 'ELEVATOR'">
+            <ion-item *ngIf="(i.stateExplanation === 'under construction' || i.stateExplanation === 'not available') && i.type === 'ELEVATOR'">
               Aufzug ist im Bau
             </ion-item>
           </ion-card-content>

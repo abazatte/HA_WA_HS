@@ -9,7 +9,7 @@ import { BahnhofdataService } from '../services/bahnhofdata.service';
 })
 export class ParkenPage implements OnInit {
   dataObj: any;
-  
+
   constructor(private checkSession: ChecksessionService, private bahnhofDataService: BahnhofdataService) { }
 
   ngOnInit() {
@@ -17,5 +17,4 @@ export class ParkenPage implements OnInit {
     this.dataObj = this.bahnhofDataService.parken();
     console.log(this.dataObj);
   }
-
 }

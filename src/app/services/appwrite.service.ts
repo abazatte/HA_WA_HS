@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Client, Account, ID } from "appwrite";
-
 import apikeys from '../../../apikeys.json';
 
 @Injectable({
@@ -23,16 +22,6 @@ export class AppwriteService {
       username,
       password
     );
-    /*this.promise = this.account.create(
-      ID.unique(),
-      username,
-      password
-    );
-    this.promise.then(function (response: any) {
-      console.log(response);
-    }, function (error: any) {
-      console.log(error);
-    });*/
   }
 
   createAuthEmailSession(email: string, password: string) {

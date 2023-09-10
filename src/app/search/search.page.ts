@@ -1,8 +1,7 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StationSearchService } from '../services/station-search.service';
 import { Observable } from 'rxjs';
 import { Geolocation } from '@capacitor/geolocation';
-
 import { ChecksessionService } from '../services/checksession.service';
 import { Bahnhof } from 'src/custom_type_definition';
 import { FastaService } from '../services/fasta.service';
@@ -21,14 +20,10 @@ import { AppwriteService } from '../services/appwrite.service';
 export class SearchPage implements OnInit{
   latitude: number = 0;
   longitude: number = 0;
-
   bahnhof: string = '';
   responseData: any;
   bahnhoefe$: Observable<any> = new Observable<any>;
-  //bahnhoefeStatic: Bahnhof[];
-
   selectedBahnhof: Bahnhof |undefined;
-  
   safeSrc: SafeResourceUrl;
   srcString: string = "https://www.google.com/maps/embed/v1/place?key=" +apikeys[0]["api-key"];
   public screenHeightCustom: number = 400;
@@ -40,13 +35,11 @@ export class SearchPage implements OnInit{
     this.getCurrentLocation().then(() => {
       this.srcString += '&q=' + this.latitude + ',' + this.longitude;
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.srcString);
-      
       this.screenHeightCustom = Math.floor(window.innerHeight * 0.80);
     });
   }
 
   ngOnInit(){
-    // this.bahnhoefe$ = this.stationSearchService.performGetRequest();
     this.checkSession.checkIfNotLoggedIn();
   }
 
@@ -72,23 +65,4 @@ export class SearchPage implements OnInit{
     this.appwrite.deleteSession();
     this.router.navigate(['/login']);
   }
-
-  /*
-  
-  getBahnhof(){
-    if (this.bahnhof) this.stationSearchService.setToSearch(this.bahnhof);
-    this.bahnhof = '';
-
-    //wie kann man ohne subscribe arbeiten?
-    this.stationSearchService.performGetRequest().subscribe(
-      (response) => {
-        this.responseData = response;
-        console.log('Data:', this.responseData);
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
-  }*/
-
 }

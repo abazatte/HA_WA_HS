@@ -9,7 +9,7 @@ import { BahnAPIResponse, Bahnhof } from 'src/custom_type_definition';
   providedIn: 'root'
 })
 /**
- * wird nicht verwendet, upload funktioniert nicht
+ * Wird nicht verwendet, upload funktioniert nicht, siehe Kapitel 2.3.6 im Bericht.
  */
 export class BucketAppwriteService {
   apikey = apikeys[4];

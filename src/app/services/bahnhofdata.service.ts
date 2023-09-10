@@ -56,6 +56,7 @@ export class BahnhofdataService {
     if(this.bahnhof) obj = { hasTaxiRank: this.bahnhof.hasTaxiRank, hasTravelNecessities: this.bahnhof.hasTravelNecessities }
     return obj;
   }
+
   //bahnhofsmission, infocenter+öffnungszeiten
   //schließfächer
   //Fundbüro
@@ -96,7 +97,6 @@ export class BahnhofdataService {
       (response) => {
         //this.responseData.photoBaseUrl
         this.responseData = response;
-
         this.picture = this.responseData.photoBaseUrl + this.responseData.stations[0].photos[0].path;
       },
       (error) => {
